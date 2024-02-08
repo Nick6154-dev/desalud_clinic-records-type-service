@@ -21,6 +21,6 @@ async def find_by_clinic_records_type(value_clinic_records_type: str):
 async def save_new_clinic_records_type(clinic_records_type: ClinicRecordsType = Body(...)):
     if clinic_records_type is None:
         raise HTTPException(status_code=400, detail="ClinicRecordType object is required")
-    result = await clinic_records_type_service.save_new_clinic_records_type(clinic_records_type)
-    return {"message": "Role saved successfully", "inserted_id": str(result)}
+    response = await clinic_records_type_service.save_new_clinic_records_type(clinic_records_type)
+    return {"message": response}
 
